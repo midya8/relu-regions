@@ -1,6 +1,6 @@
-# HingeLab
+# Relu regions
 
-HingeLab computes every affine region of a supplied small rational ReLU network. For one scalar input and a fixed label convention, it checks whether the distance to another class is attained, only approached or absent in the domain.
+Relu regions computes every affine region of a supplied small rational ReLU network. For one scalar input and a fixed label convention, it checks whether the distance to another class is attained, only approached or absent in the domain.
 
 Three inspectors keep the questions separate:
 
@@ -8,7 +8,7 @@ Three inspectors keep the questions separate:
 - [Every reference at one radius](REFERENCE.md): which points belong to the complete robust-reference set?
 - [Every radius](RADIUS.md): how does robust interval length change, and can robust points remain when length is zero?
 
-[Live inspector](https://midya8.github.io/hingelab/) · [Exact contract](CONTRACT.md) · [Implementation](hingelab/atlas.py) · [Independent checker](hingelab/oracle.py)
+[Live inspector](https://midya8.github.io/relu-regions/) · [Exact contract](CONTRACT.md) · [Implementation](hingelab/atlas.py) · [Independent checker](hingelab/oracle.py)
 
 ## A boundary need not attain the distance
 
@@ -50,13 +50,13 @@ Open the inspector at localhost:8000. The complete-report cross-language tests c
 
 One scalar input, one or two hidden ReLU layers of width 1..3, one scalar output margin, at most six hidden units. Parameters, endpoints, reference and radius are integers or rational strings with absolute value at most 32 and denominator at most 1,024. The exact contract describes grammar and topology. The checker enumerates at most 64 masks, not arbitrary networks. No training, model import, image classifier, high-dimensional certificate, speed/accuracy comparison or new-algorithm claim. No paid APIs or private data.
 
-This bounded educational implementation uses established piecewise-affine network analysis. In particular, [Sotoudeh and Thakur, *Computing Linear Restrictions of Neural Networks* (NeurIPS 2019)](https://proceedings.neurips.cc/paper_files/paper/2019/file/908075ea2c025c335f4865f7db427062-Paper.pdf) develops exact line restrictions for much broader layer families. [Bunel et al., *Branch and Bound for Piecewise Linear Neural Network Verification* (JMLR 2020)](https://www.jmlr.org/papers/v21/19-468.html) studies general verification. HingeLab neither implements nor benchmarks those full systems. [Source notes](SOURCES.md) distinguish used facts from background.
+This bounded educational implementation uses established piecewise-affine network analysis. In particular, [Sotoudeh and Thakur, *Computing Linear Restrictions of Neural Networks* (NeurIPS 2019)](https://proceedings.neurips.cc/paper_files/paper/2019/file/908075ea2c025c335f4865f7db427062-Paper.pdf) develops exact line restrictions for much broader layer families. [Bunel et al., *Branch and Bound for Piecewise Linear Neural Network Verification* (JMLR 2020)](https://www.jmlr.org/papers/v21/19-468.html) studies general verification. Relu regions neither implements nor benchmarks those full systems. [Source notes](SOURCES.md) distinguish used facts from background.
 
 MIT licensed.
 
 ## Every reference, one radius
 
-[Reference atlas](https://midya8.github.io/hingelab/reference.html) computes the
+[Reference atlas](https://midya8.github.io/relu-regions/reference.html) computes the
 entire exact robust-reference set at a fixed closed-ball radius. Original and
 eroded class components retain open/closed endpoints and isolated ties. Domain
 edges are clipped, not invented adversaries. A class interval can shrink to a
@@ -70,7 +70,7 @@ and attribution. The exact robust length fraction is not accuracy or probability
 
 ## Every radius, exact
 
-[All-radius demo](https://midya8.github.io/hingelab/radius.html) · [Contract and finite-check argument](RADIUS.md)
+[All-radius demo](https://midya8.github.io/relu-regions/radius.html) · [Contract and finite-check argument](RADIUS.md)
 
 Exact piecewise-linear robust interval length for every radius in [0,32], plus
 strict/closed existence sets and the first radius at most a requested length
